@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var output ="";
+            for (let i = 0; i < 256; i++) {
+                output += `<div></div>`;
+            }
+            $(document.body).html(output);
+            $("div").each((i, item)=>{
+                // $(item).css('height', '2px');
+                // $(item).css('background', `rgb(${i},${i},${i})`);
+                $(item).css({
+                    height: '2px',
+                    background: `rgb(${i},${i},${i})`
+                
+                });
+                $(item).css('background', `rgb(${i},${i},${i})`);
+            });
+            
+        //     document.body.innerHTML = output;
+        //     var divs = document.querySelectorAll('div');
+        //     for (let i = 0; i < divs.length; i++) {
+        //         const item = divs[i];
+        //         item.style.height = "2px";
+        //         // item.style.background = `rgb(${i},${i},${i})`;
+        //         item.style.background = "rgb("+ i + ',' + i + ',' + i + ")";
+            
+        //     }
+        });
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

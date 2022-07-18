@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <style>
+
+        a{
+            text-decoration: none;
+        }
+    </style>
+    <script>
+        window.onload = () =>{
+            var seq = 0;
+            var page = 1;
+            
+            var appendList = function(){ // appendList 함수 선언
+                document.querySelector("#page").value = page++;
+                for (let i = 0; i < 20; i++ ) {
+                    $(`<h1>Infinity Scroll ${seq++}</h1>`).appendTo('#list');
+                }
+                $("#list").append(btnMore);
+            }
+            appendList();
+            // getElementByI() 메서드를 이용한 방법
+            // document.getElementById("btnMore").onclick = function(){
+            //     appendList();
+            //}
+            // querySelector() 메서드를 이용한 방법
+            document.querySelector("#btnMore").onclick = function(){
+                appendList();
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="hidden" id="page" name="page">
+    <div id = "list">
+
+    </div>
+    <button id="btnMore">더보기</button>
+</body>
+</html>

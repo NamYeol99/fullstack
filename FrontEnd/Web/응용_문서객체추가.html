@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function () {
+            for (let i = 0; i < 10; i++) {
+                $(`<h5>Create Documnet Object ${i} By jQuery</h5>`).css({
+                    background: 'red',
+                    color: 'white'
+                }).insertAfter('div');
+                // $('div').after(`<h5>Create Documnet Object ${i} By jQuery</h5>`); //appendTo
+                // $('h5').css({
+                //     background: "red",
+                //     color: "white"
+                // });
+                
+            }
+        });
+        // window.onload = () =>{
+        //     var str = '';
+        //     for (let i = 0; i < 10; i++) {
+        //         // str += `<h5>Create Documnet Object ${i} By Java Script</h5>`;
+        //         document.body.append(document.createElement("h5"));
+        //     }
+        //     // document.body.innerHTML = str;
+        //     var h5s = document.querySelectorAll('h5');
+        //     h5s.forEach(function(item, index){
+        //         item.textContent = "Create Documnet Object ${i} By Java Script";
+        //         item.style.background = 'red';
+        //         item.style.color = 'white';
+        //     });
+        // }
+    </script>
+</head>
+
+<body>
+    <h3>top</h3>
+    <div style = "border: 1px solid black;">
+        <h1>Documnet</h1>
+    </div>
+    <h3>bottom</h3>
+</body>
+
+</html>

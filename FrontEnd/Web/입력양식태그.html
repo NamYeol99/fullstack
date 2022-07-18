@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<style>
+	</style>
+	<script>
+		window.onload = function() {
+			var btnSend = document.getElementById("btnSend");
+			btnSend.onclick = function(event) {
+			event.preventDefault();
+				var id = document.getElementById("id");
+				if(id.value == "") {
+					alert('아이디를 확인하세요');
+					id.focus();
+					return;
+				}
+				var name = document.getElementById("name");
+				if(name.value == "") {
+					alert('이름을 확인하세요');
+					name.focus();
+					return;
+				}
+				var pass = document.getElementById("pass");
+				var repass = document.getElementById("repass");
+				if(pass.value != repass.value) {
+					alert('비밀번호를 확인하세요');
+					pass.value = ""; <!--맞지 않으면 날라간다-->
+					repass.value = "";
+					pass.focus(); 
+					return;
+				}
+				document.getElementById("frm").submit();
+			}
+		}
+		
+	</script>
+</head>
+<body>
+	<a href="테이블태그.html?name=박소윤&id=soyoon35&pass=1">링크</a> <!--이것을 쿼리(키값과 밸류값)라고 한다. 겟방식이다.주소링크에 포함되어 뜬다. 당연히 로그인에서는 쓰지 못할 것이다.-->
+	<!--get은 임시변수라서 텍스트만 들어갈수 있다. post는 파일도 들어갈 수 있다. 겟은 enctype="multipart/form-data이거 못쓴다-->
+	<form method="post" id="frm" action="테이블태그.html" enctype="multipart/form-data">
+		<h1>입력양식태그</h1><hr>
+		이름: <input name="name" id="name" type="text"><br> <!--아이디와 네임은 용도가 다르다-->
+		ID: <input name="id" id="id" type="text"><br>
+		비밀번호: <input name="pass" id="pass" type="password"><br>
+		비밀번호확인: <input id="repass" type="password"><br>
+		file: <input type="file" name="upload" multiple><br>
+		<input type="submit" id="btnSend" >
+	</form>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1">
+	<title></title>
+	<style>
+		*{
+			margin:0; padding:0;
+		}
+		body{
+			width: 960px; margin:0 auto; overflow: hidden;
+		}
+		#menu{
+			width: 260px; float: right;
+		}
+		#section{
+			width: 700px; float: left;
+		}
+		li{
+			list-style:none;
+		}
+		@media screen and (max-width: 767px){
+			body{width: auto;}
+			#menu{width: auto; float: none; display:none;}
+			#section{width: auto; float: none;}
+		}
+		
+		
+	</style>
+</head>
+<body>
+	<div id="section">
+		<h1>Reactive Web</h1>
+		<p>Mobile app is lauced...</p>
+	</div>
+	<div id="menu">
+		<ul>
+			<li>Menu A</li>
+			<li>Menu B</li>
+			<li>Menu C</li>
+		</ul>
+	</div>
+</body>
+</html>

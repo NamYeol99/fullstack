@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <script>
+    window.onload = ()=>{
+      document.addEventListener('click', lightbox);
+      function lightbox(e) {
+        e.preventDefault();
+        const elem = e.target; 
+        //target은 사용자가 클릭하여 이벤트가 발생된 요소를 가리킴 (a 태그안에 img 가르킴)
+        //target은 이벤트에 등록된 요소나 또는 그 자식(후손?) 이 될 수 있다
+
+        const elemId = elem.getAttribute('id');
+        // alert(elemId);
+        const lightboxOverlay = document.querySelector('#lightbox-overlay');
+        const lightboxImage = document.querySelector('#lightbox-image');
+        if(elem.hasAttribute('data-lightboximg')){
+          lightboxOverlay.classList.add('visible'); //#lightbox-overlay.visible
+          // const newImage = elem.getAttribute('data-lightboximg');
+          const newImage = elem.dataset.lightboximg;
+          lightboxImage.setAttribute('src', newImage);
+        }
+        if(elemId == 'lightbox-overlay' || elemId == 'lightbox-image') {
+          lightboxOverlay.classList.remove('visible');
+          lightboxImage.setAttribute('src','');
+        }
+      }
+    }
+  </script>
+  <style>
+    *{margin: 0;padding: 0;}
+    .gallery{width: 100%;height: 100vh;padding: 10px 20px;display:grid;
+    grid-template-columns: repeat(4,1fr);gap: 30px;box-sizing:border-box;}
+    .gallery .image {list-style: none;}
+    .gallery .image img {
+      display: block;width: 200px;--height: 350px;
+      border: 1px solid rgba(0,0,0,.8); box-shadow: 0 0 10px #000;
+    }
+    #lightbox-overlay {
+      opacity: 0;pointer-events: none;position: absolute; top:0;left:0;
+      width: 100%;height: 100vh; background-color: rgba(205, 205, 205, 0.8);
+      transition: all .3s linear;
+    }
+    /*
+    opacity 숫자가 적을수록 투명
+    pointer-events는 요소에 부여된 이벤트를 제거하거나 다시 활성화 시켜야하는 경우
+    none : 비활성화, auto : 기본기능을 하도록 되돌린다.
+    */
+    #lightbox-overlay.visible{
+      opacity: 1;pointer-events: auto;
+    }
+    #lightbox-image{
+      display: block;width: 50%;--height: 90vh;align-items: center;
+      position: absolute; top: 50%;left: 50%;transform: translate(-50%,-50%);
+      border: 1px solid #000;box-shadow: 0 0 20px #fff;
+      border-radius: 20px;
+    }
+  </style>
+</head>
+<body>
+  <ul class="gallery">
+    <li class="image"><a href="#" id="1"><img src="images/cat.jpg" alt="고양이"
+      data-lightboximg="images/cat.jpg" id="a"></a></li>
+    <li class="image"><a href="#" id="2"><img src="images/cat.jpg" alt="고양이"
+      data-lightboximg="images/cat.jpg" id="b"></a></li>
+    <li class="image"><a href="#" id="3"><img src="images/cat.jpg" alt="고양이"
+      data-lightboximg="images/cat.jpg" id="c"></a></li>
+    <li class="image"><a href="#" id="4"><img src="images/cat.jpg" alt="고양이"
+      data-lightboximg="images/cat.jpg" id="d"></a></li>
+  </ul>
+  <div id="lightbox-overlay">
+    <img src="" alt="확대 이미지" id="lightbox-image">
+  </div>
+  <button>Click</button>
+</body>
+</html>

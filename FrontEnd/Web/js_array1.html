@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+    <script>
+        // 자바 스크립트의 배열 특징
+        // 1. 배열의 사이즈가 정해져 있지 않다.
+        // 2. 배열의 element type이 달라도 상관 없다.
+        //1. []로 배열 생성
+        // var arr = [];
+        // arr =[1,2,3,4,5,6,7,8,9,10];
+        // arr = ['zero', 'one', 'two', 'three'];
+        // arr = [100, 'hello', document];
+        // arr = [,,,,];
+        // 2. new Array()로 배열 생성
+        var total = 0;
+        var arr = new Array();
+        // arr = new Array(3);
+        // arr[0] = 0; arr[1] = 1; arr[2] = 2;
+        // arr = new Array(100,'hello', document, new Array(1,2,3,4,5));
+        arr = new Array(0,1,2,3,4,5,6,7,8,9);
+        arr.pop(); //배열 마지막 인덱스 값 삭제
+        console.log(arr); 
+        arr.push(9); // 배열 마지막 인덱스에 값 추가
+        console.log(arr); 
+        arr.shift(); // 배열의 첫 번째 인덱스 값 삭제
+        arr.unshift(0); // 배열의 첫 번재 인덱스 값 추가
+        console.log(arr); 
+        arr.splice(3,2); // 배열의 중간 인덱스 값 삭제
+        console.log(arr);
+        arr.splice(3,0,3,4); //배열 중간부분 추가
+        console.log(arr); 
+        arr.forEach(item => {
+           total += item;
+        });
+        console.log(`foreEach를 통한 합계: ${total}`);
+        arr.forEach(function(item){
+            console.log(item);
+        });
+        console.log(arr);
+       
+        // for(let i=0; i<arr.length; i++){
+        //     // console.log(arr[i]);
+        //     total = total + arr[i];
+        // }
+        console.log(` arr 배열의 합은 : ${total} 입니다`);
+    </script>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var date = new Date();
+        console.log(date.getFullYear());
+        console.log(date.getMonth()+1);
+        console.log(date.getDate());
+        // date.setDate(8);
+        var weeks = ['일','월','화','수','목','금','토'] // 데이터가 복수개 들어갈 수 있는 변수
+        console.log(weeks[date.getDay()]);
+        // date.setHours(12);
+        var hour = date.getHours();
+        if(hour < 12){
+            console.log(`오전 ${date.gethour()}시 입니다`);
+        }
+        else{
+            console.log(`오후 ${hour}시 입니다`);
+        }
+        console.log((hour<12)?`오전 ${hour}시 입니다`: `오후 ${hour}시 입니다`);
+        date.setMonth(11);
+        var month = date.getMonth();
+        var result ="";
+        if(month >= 3 && month <= 5){
+            result ="봄";
+        }
+        else if(month >=6 && month <=8){
+            result ="여름"
+        }
+        else if(month >=9 && month <=10){
+            result = "가을"
+        }
+        else{
+            result = "겨울";
+        }
+        console.log(`지금은 ${result} 입니다`);
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

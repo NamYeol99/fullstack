@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <h1>DOM</h1>
+    <h1>DOM</h1>
+    <h2 class = "header">Documnet Object Model</h2>
+    <h2 class = "header">Documnet Object Model</h2>
+
+
+    <script>
+        
+        // DOM은 document에 접근할 수 있도록 방법적인 것을 제공
+        // 단수계 선택
+        // document.getElementById();
+        var h1 = document.querySelector('h1');
+        var h2 = document.querySelector('h2');
+        // h1.style.backgroundColor = 'red';
+        h2.style.color = 'red';
+        //복수계 선택
+        var h1s = document.querySelectorAll('h1');
+        //배열로 등록됨
+        console.log(typeof(h1s));
+        for (const i in h1s){
+            if(i=='entries' || i == 'keys') break;
+            h1s[i].style.background = 'blue';
+        }
+        for (let i = 0; i < h1s.length; i++) {
+            // h1s[i].style.background = 'red';
+        }
+        for (i of h1s){
+            i.style.color="yellow";
+        }
+        // h1s.forEach(function(item){
+        //     item.style.background = 'blue';
+        // });
+        h1s.forEach(item => {
+            // item.style.background = 'blue';
+        });
+        // h1s.forEach(item=> item.style.background = 'blue');
+        h1s.forEach(()=> console.log('hello'));
+        h1s.forEach(() => {return 'hello'});
+        h1s.forEach(() => 'hello');
+        // const h2s = document.getElementsByClassName('header');
+        var h2s = document.getElementsByClassName("header");
+        for (i of h2s){
+            i.style.color="yellow";
+            console.log(h2s);
+        }
+
+        // for (i=0; i < h2s.length; i++){
+        //     h2s[i].style.color="yellow";
+        // }
+    </script>
+</body>
+</html>

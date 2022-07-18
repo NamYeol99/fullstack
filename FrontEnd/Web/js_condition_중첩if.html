@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>      
+		var gradeSub =function(score, grade) {
+			const rest = score%10;
+			if(rest>6){
+				grade += "+";
+			}
+			else if (rest<=6 && rest>=4){
+				grade += "0";
+			}
+			else{
+				grade += "-";
+			}
+			return gra
+		}        
+		/*
+		var gradeSub= () => {
+			const rest = score%10;
+			if(rest>6){
+				grade += "+";
+			}
+			else if (rest<=6 && rest>=4){
+				grade += "0";
+			}
+			else{
+				grade += "-";
+			}
+		}   
+		
+		function gradeSub(score, grade){
+			const rest = score%10;
+			if(rest>6){
+				grade += "+";
+			}
+			else if (rest<=6 && rest>=4){
+				grade += "0";
+			}
+			else{
+				grade += "-";
+			}
+			return grade;
+		}  */
+		var score = prompt("점수를 입력하세요! ")
+        var grade = "";
+        if (score >= 100){
+			grade = "A+";
+
+        }
+		else if (score >=90){
+			grade = gradeSub(score, "A");
+
+        }
+        else if (score >=80){
+			grade = gradeSub(score, "B");
+
+        }
+        else if (score >=70){
+			grade = gradeSub(score,"C");
+
+        }
+        else if (score >= 60){
+			grade = gradeSub(score,"D");
+
+        }
+        else if (score < 60 && score >= 0){
+            grade = "F";
+        }
+		else{
+			alert("점수를 잘못 입력하셨습니다(0~100)");
+		}
+        console.log(`당신의 학점은 ${grade}학점 입니다`);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

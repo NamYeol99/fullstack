@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <script src="js/jquery-3.6.0.min.js"></script>
+  <script>
+    window.onload = ()=>{
+      $('.container').append($('.item:nth-child(1)').clone());
+      var slider = document.querySelector('.gallery');
+      var container = document.querySelector('.gallery .container');
+      var items = document.querySelectorAll('.gallery div.item');
+      var width = slider.dataset.width;
+      var height = slider.dataset.height;
+      var count = items.length;
+      alert(count+"/"+count*width);
+      slider.style.position = 'relative';
+      slider.style.overflow = 'hidden';
+      slider.style.width = `${width}px`;
+      slider.style.height = `${height}px`;
+      //container.style.background = 'yellow';
+      container.style.position = 'absolute';
+      container.style.width = `${count * width}px`;
+      container.style.overflow = 'hidden';
+      for (let i = 0; i < items.length; i++) {
+        items[i].style.width= `${width}px`;
+        items[i].style.height= `${height}px`;
+        items[i].style.float = 'left';
+      }
+      btnLeft = document.querySelector("#left-button");
+      btnRight = document.querySelector("#right-button");
+      var currentPage = 0;
+
+      var changePage = () => {
+        $('.container').animate({
+          left : `${-currentPage * width}`
+        }, 300);
+      }
+
+      btnLeft.onclick = ()=>{
+        if(currentPage > 0){
+          currentPage -= 1;
+          changePage();
+        }
+      }
+      btnRight.onclick = ()=>{
+        if(currentPage < count - 1){
+          currentPage += 1;
+          changePage();
+        }
+      }
+      function autoTurnToRight(){
+        if(currentPage<count-1) {
+          currentPage++;
+        } else {
+          currentPage = 0;
+        }
+        changePage();
+      }
+      setInterval(function(){
+        autoTurnToRight();
+      }, 1000);
+    }
+  </script>
+  <style>
+    div.item:nth-child(1){background: blueviolet;}
+    div.item:nth-child(2){background: pink;}
+    div.item:nth-child(3){background: burlywood;}
+  </style>
+</head>
+<body>
+  <div class="gallery" data-width="500" data-height="300">
+    <div class="container">
+      <div class="item"><h1>1</h1></div>
+      <div class="item"><h1>2</h1></div>
+      <div class="item"><h1>3</h1></div>
+    </div>
+  </div>
+  <button id="left-button">←</button>
+  <button id="right-button">→</button>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+            $('button').click(function(){
+                $('.page').fadeToggle('fast');
+            });
+            $('#box').css({
+                width: 100,
+                height: 100,
+                    background: 'red',
+                    position:'absolute'
+                }).animate({ // animate(속성 객체, 시간, 콜백);
+                    right:500,
+                    bottom: 500,
+                    opacity:0.5 
+                },1000); 
+                
+            });
+            </script>
+</head>
+<body>
+    <button>Toggle Show</button>
+    <div class="page">
+        <h1>animation show</h1>
+        <p>Compressed and uncompressed copies of jQuery files are available. The uncompressed file is best used during development or debugging; the compressed file saves bandwidth and improves performance in production. You can also download a sourcemap file for use when debugging with a compressed file. The map file is not required for users to run jQuery, it just improves the developer's debugger experience. As of jQuery 1.11.0/2.1.0 the //# sourceMappingURL comment is not included in the compressed file.</p>    
+    </div>
+    <hr>
+    <div id="box"></div>
+
+</body>
+</html>

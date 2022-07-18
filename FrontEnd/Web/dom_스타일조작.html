@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script>
+        window.onload = () => {
+            var output ="";
+            for (let i = 0; i < 256; i++) {
+                output += `<div></div>`;
+            }
+            document.body.innerHTML = output;
+            var divs = document.querySelectorAll('div');
+            for (let i = 0; i < divs.length; i++) {
+                const item = divs[i];
+                item.style.height = "2px";
+                // item.style.background = `rgb(${i},${i},${i})`;
+                item.style.background = "rgb("+ i + ',' + i + ',' + i + ")";
+            
+            }
+       }; 
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

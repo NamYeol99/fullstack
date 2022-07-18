@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        * {
+            margin: 0; padding: 0;
+        }
+        html, body{
+            width:100%; height:100%;
+        }
+        .modal {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300px;
+            height: 300px;
+            display: none;
+            margin : -150px;
+            padding: -150px;
+            background-color: rgba(0, 0, 0, 0.4);
+            border: 1px solid black;
+        }
+
+        .btn-close-popup{
+            position: absolute;
+            left: 50%;
+            bottom: 0%;
+            width: 100px;
+            margin: 0 -50px;
+        }
+        .test{
+            background-color: white;
+        }
+        .full{
+            width:100%; height:100%;
+        }
+
+        
+    </style>
+    <script>
+        window.onload = () => {
+            const modal = document.querySelector('.modal');
+            const full = document.querySelector('.full');
+            const btnOpenPopup = document.querySelector('.btn-open-popup');
+            const btnClosePopup = document.querySelector('.btn-close-popup');
+            btnOpenPopup.addEventListener('click', (e) => {
+                modal.style.display = 'block';
+                full.style.background = '#E0E0E0';
+                
+            });
+            btnClosePopup.addEventListener('click', (e) => {
+                modal.style.display = 'none';
+                full.style.background = 'white';
+
+            
+            });
+        }
+    </script>
+</head>
+
+<body>
+<div class ="full">
+    <div class="modal">
+        <div class="modal_body">
+            <div class="test">
+                알림
+            </div>
+            <div class="close">
+                <button class="btn-close-popup">닫기</button> 
+            </div>
+        </div>
+    </div>
+    <button class="btn-open-popup">모달 Show</button>
+</div>
+</body>
+
+</html>

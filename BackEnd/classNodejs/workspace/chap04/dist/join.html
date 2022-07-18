@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원가입페이지</title>
+    <style></style>
+    <script>
+      window.onload = function () {
+        var btnSend = document.getElementById("btnSend");
+        btnSend.onclick = function (event) {
+          event.preventDefault();
+          var id = document.getElementById("id");
+          if (id.value == "") {
+            alert("아이디를 입력하세요");
+            id.focus();
+            return;
+          }
+          var pass = document.getElementById("pass");
+          var repass = document.getElementById("repass");
+          if (pass.value == "") {
+            alert("비밀번호를 입력하세요");
+            pass.focus();
+            return;
+          }
+
+          if (pass.value != repass.value) {
+            alert("비밀번호가 맞지 않습니다");
+            pass.value = "";
+            repass.value = "";
+            pass.focus();
+            return;
+          }
+
+          var name = document.getElementById("name");
+          if (name.value == "") {
+            alert("이름을 입력하세요");
+            name.focus();
+            return;
+          }
+          var num1 = document.getElementById("num1");
+          if (num1.value == "") {
+            alert("전화번호를 입력하세요");
+            num1.focus();
+            return;
+          }
+          var num2 = document.getElementById("num2");
+          if (num2.value == "") {
+            alert("전화번호를 입력하세요");
+            num2.focus();
+            return;
+          }
+          var mail1 = document.getElementById("mail1");
+          if (mail1.value == "") {
+            alert("이메일을 입력하세요");
+            mail1.focus();
+            return;
+          }
+          var mail2 = document.getElementById("mail2");
+          if (mail2.value == "") {
+            alert("이메일을 입력하세요");
+            mail2.focus();
+            return;
+          }
+
+          document.getElementById("frm").submit();
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <h1>회원가입</h1>
+    <form id="frm" method="post" action="/joinfrm">
+      <table>
+        <tr>
+          <th>회원ID</th>
+          <td><input type="text" id="id" name="id" /></td>
+        </tr>
+        <tr>
+          <th>비밀번호</th>
+          <td><input type="password" id="pass" name="pass" /></td>
+        </tr>
+        <tr>
+          <th>비밀번호확인</th>
+          <td><input type="password" id="repass" /></td>
+        </tr>
+        <tr>
+          <th>회원명</th>
+          <td><input type="text" id="name" name="name" /></td>
+        </tr>
+        <tr>
+          <th>전화번호</th>
+          <td>
+            <select><option>010</option></select> 
+            - <input type="text" id="num1" name="num1" />
+            - <input type="text" id="num2" name="num2" />
+          </td>
+        </tr>
+        <tr>
+          <th><label for="mail">이메일</label></th>
+          <td>
+            <input id="mail1" type="text" name="mail1" /> 
+            @<input id="mail2" type="text" name="mail2" />
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <button type="submit" id="btnSend" name="btnSend">제출</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>

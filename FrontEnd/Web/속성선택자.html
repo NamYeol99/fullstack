@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		input[type=text]:focus {
+			background: yellow; color: blue;
+		}
+		input[type=password]:focus {
+			background: yellow; color: blue;
+		}
+		div[data-role*=row]{
+			display:inline-block; width:200px; height:300px; background:red;
+		}
+	</style>
+
+</head>
+<body>
+	<input type="text">
+	<input type="password">
+	<input type="checkbox">
+	<div data-role="123 row tyu " data-auth="row"></div>
+	<article
+		id="ecars"
+		data-columns="3"
+		data-index-number="12314"
+		data-parent="cars">
+	</article>
+	<script>
+		-- alert(document.getElementById("ecars").getAttribute("data-columns"));
+		alert(document.getElementById("ecars").(dataset.columns);
+		alert(document.getElementById("ecars").(dataset.parent);
+	</script>
+		
+</body>
+</html>

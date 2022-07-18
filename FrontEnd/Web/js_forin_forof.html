@@ -1,0 +1,17 @@
+<script>
+  //for in 반복문 : 객체의 모든 열거 가능한 속성에 대해 반복
+  //for of 반복문 : [Symbol.iterator] 속성을 가지는 컬렉션 전용(열거 가능한 속성)
+  Object.prototype.objCustom = function () {};
+  Array.prototype.arrCustom = function () {};
+
+  var iterable = [3, 5, 7];
+  iterable.foo = "hello";
+
+  for (var key in iterable) {
+    // console.log(key); // 0, 1, 2, "foo", "arrCustom", "objCustom"
+  }
+
+  for (var value of iterable) {
+    console.log(value); // 3, 5, 7
+  }
+</script>

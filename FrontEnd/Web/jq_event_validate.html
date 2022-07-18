@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            $('form').submit(function (event) {
+                var value = $('input[type="text"]').val();
+                console.log(value);
+                if (value.replace(/[가-힣]/g, '').length == 0) {
+                    alert('진행합니다.');
+                } else {
+                    alert("한글만!");
+                    $('input[type="text"]').focus();
+                    event.preventDefault();
+                }
+            });
+            $('label').click(function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                alert("label");
+            });            
+            $('div').click(function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                alert("div");
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <form action="#">
+        <div>
+            <label>이름
+                <input type="text">
+                <input type="submit" value="전송">
+            </label>
+        </div>
+    </form>
+</body>
+
+</html>

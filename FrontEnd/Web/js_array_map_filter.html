@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script>
+        arr = new Array(10);
+        for (let i=0; i<arr.length; i++){
+            arr[i]=i;
+        }
+        console.log(arr.toString());
+        console.log(arr.valueOf()); // console.log(arr)과 동일결과
+        var isEven = function(value){
+            console.log(value % 2===0);
+            // return value % 2 === 0;
+        }
+        // var newArr = arr.map(isEven); // 콜백함수의 변경결과로 새로운 배열 반환
+        // var newArr = arr.filter(isEven); // 콜백함수의 해당원소로 새로운 배열 반환
+        // console.log(newArr.toString());
+        arr.forEach(isEven); // 콜백함수의 각 원소에 대한 실행만!
+        
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

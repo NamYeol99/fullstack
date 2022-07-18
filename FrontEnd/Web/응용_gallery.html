@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script>
+    window.onload = () => {
+        // $('item:nth-child(1)').clone().appendTo('.container');
+        $('.container').append($('div > .item:nth-child(1)').clone());
+        var slider = document.querySelector('[data-role="slider"]');
+        var container = document.querySelector('.container');
+        var width = slider.dataset.width;
+        var height = slider.dataset.height;
+        var items = document.querySelectorAll('div.item');
+        var count = items.length;
+        alert(count+ "/" + count*width);
+        // console.log(`width:${width}, height:${height} count:${count}`);
+        slider.style.position = 'relative';
+        slider.style.overflow = 'hidden';
+        slider.style.width = `${width}px`;
+        slider.style.height = `${height}px`;
+        container.style.position = 'absolute';
+        container.style.width = `${count * width}px`;
+        // container.style.overflow = 'hidden';
+
+        for (let i = 0; i < items.length; i++) {
+            items[i].style.width = `${width}px`;
+            items[i].style.height = `${height}px`;
+            items[i].style.float = 'left';
+        }
+        btnLeft = document.querySelector('#left');
+        btnRight = document.querySelector('#right');
+        var currentPage = 0;
+        // var changePage = function () {
+        //     container.style.left = `${currentPage * -width}px`;
+
+        // }
+        btnLeft.onclick = function () {
+
+            if (currentPage > 0) {
+                currentPage -= 1;
+                changePage();
+
+            }
+        }
+        btnRight.onclick = function () {
+
+            if (currentPage < items.length) {
+                currentPage += 1;
+                changePage();
+
+            }
+        }
+        var changePage = () => {
+            $('.container').animate({
+                left: `${currentPage * -width}px`
+            }, 300);
+        }
+
+        var i = 0;
+        setInterval(function () {
+            autoTurnToRight();
+        }, 1000);
+        
+        function autoTurnToRight() {
+            if (currentPage < count - 1) {
+                currentPage++;
+                changePage();
+            } else {
+                    currentPage = 0;
+                    container.style.left = `${0 * -width}px`;
+                    $('.container').animate({
+                    left : `${-currentPage * width}`}, 300);
+                
+                    
+            } 
+        }
+    }
+</script>
+<style>
+    #item_one {
+        background-color: blueviolet;
+    }
+
+    #item_two {
+        background-color: pink;
+    }
+
+    #item_three {
+        background-color: burlywood;
+    }
+</style>
+
+
+<body>
+    <div data-role="slider" data-width="500" data-height="300">
+        <div class="container">
+            <div class="item" id= "item_one">
+                <h1>1</h1>
+            </div>
+            <div class="item" id = "item_two">
+                <h1>2</h1>
+            </div>
+            <div class="item" id = "item_three">
+                <h1>3</h1>
+            </div>
+        </div>
+    </div>
+    <button id="left">←</button>
+    <button id="right">→</button>
+</body>
+
+</html>

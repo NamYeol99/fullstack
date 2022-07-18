@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		li{
+			display:inline-block; width:90px; height:22px; background:pink;
+			text-align:center; margin-right: 1px;
+		}
+		li:hover{
+			cursor:pointer; color:red;
+		}
+		li:nth-child(2n+1){
+			background: orange;
+		}
+		li:first-child {
+			border-radius: 10px 0 0 10px;
+		}
+		li:last-child {
+			border-radius: 0 10px 10px 0;
+		}
+		div{
+			display:inline-block; width:90px; height:22px; margin-right: 1px;
+			text-align:center;
+		}
+		div:nth-of-type(2n+1) {
+			background:orange;
+		}
+		div:nth-of-type(2n) {
+			background:pink;
+		}
+		div:first-of-type {
+			margin-left:40px; border-radius: 10px 0 0 10px;
+		}
+		div:last-of-type {
+			border-radius: 0 10px 10px 0;
+		
+		
+	</style>
+</head>
+<body>
+<h1>구조선택자(Structure Selector)</h1>
+<ul>
+	<li>child 1</li>
+	<li>child 2</li>
+	<li>child 3</li>
+	<li>child 4</li>
+	<li>child 5</li>
+</ul>
+<div>type 1</div>
+<div>type 2</div>	
+<div>type 3</div>	
+<div>type 4</div>	
+<div>type 5</div>	
+
+
+
+
+
+</body>
+</html>

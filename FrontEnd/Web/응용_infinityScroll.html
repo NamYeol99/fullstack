@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <style>
+        div{
+            font-size: 40px;
+        }
+        a{
+            text-decoration: none;
+        }
+    </style>
+    <script>
+        function movePage(seq){
+            var pageHidden = document.querySelector("#page");
+            location.href = `응용_문서객체추가.html?seq=${seq}&page=${pageHidden.value}`;
+        }
+        window.onload = () =>{
+            var seq = 0;
+            var page = 0;
+            
+            var appendList = function(){ // appendList 함수 선언
+                document.querySelector("#page").value = page++;
+                for (let i = 0; i < 20; i++ ) {
+                    $(`<div><a href="#" onclick="movePage(${seq})">Infinity 
+                        Scroll ${seq++}</a></div>`).appendTo('body');
+                }
+            }
+
+            appendList();
+
+            $(window).scroll(function(){
+                var scrollHeight = $(window).scrollTop()+$(window).height();
+                var documentHeight = $(document).height();
+                // console.log($(window).scrollTop());
+                // console.log($(window).height());
+                // console.log($(document).height());
+                if(scrollHeight == documentHeight){
+                    appendList();
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <input type="hidden" id="page" name="page">
+</body>
+</html>

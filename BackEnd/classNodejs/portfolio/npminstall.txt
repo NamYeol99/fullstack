@@ -1,0 +1,13 @@
+npm install pm2
+npm install nodemon -g
+
+npm install --save path //node.js에 내장 되있어서 굳이 설치안해도 됨
+npm install express // 서버 구축
+npm install morgan // 로그
+npm install body-parser // post
+
+//비동기적인것을 순차적으로 할 떄
+npm install fxjs
+npm install ramda
+
+github desktop 사용

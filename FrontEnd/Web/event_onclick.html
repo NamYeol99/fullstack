@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script>
+        function callHello(){
+            // alert("hello");
+            var box = document.getElementById("box");
+            box.innerHTML = "<textarea rows=10 cols=30></textarea>"
+        }
+        window.onload = ()=>{
+            var btn = document.querySelector("#btn");
+            btn.onmouseenter = () => {
+                // alert('hello javascript');
+                var box = document.getElementById("box");
+                box.innerHTML ="";
+            }
+        };
+        // window.onresize = () =>{
+        //     console.log(window.outerWidth + "/" + window.outerHeight);    
+        // }
+    </script>
+</head>
+<body>
+    <button onclick="alert('Hello')">Inline model 버튼1</button>
+    <button onmouseenter="callHello()"> Inline model 버튼2</button>
+    <button id="btn">classic event 버튼3</button>
+    <div id="box">asd</div>
+
+</body>
+</html>

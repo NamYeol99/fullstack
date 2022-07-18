@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		input[type=text]:disabled{
+			-- background: red;
+		}
+	</style>
+</head>
+<body>
+<h1>상태 선택자(Status Selector)</h1>
+ON<input type="radio" value="on" name="sw" checked id="rbon">
+/ OFF<input type="radio" value="off" name="sw" id="rboff">
+<form action="반응선택자.html" method="get">
+<input type="text" id="text" name="text" readonly>
+<button type="submit">Send</button>
+</form>
+<script>
+	document.getElementById("rbon").onchange = function(){
+		const text = document.getElementById("text");
+		text.disabled = false;
+		text.value = "myName";
+	}
+	document.getElementById("rboff").onchange = function(){
+		const text = document.getElementById("text");
+		text.disabled = true;
+		text.value = "";
+	}
+</script>
+</body>
+</html>

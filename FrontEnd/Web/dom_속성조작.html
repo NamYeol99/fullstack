@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script>
+        window.onload = () => {
+            var image = document.querySelector("#image");
+            image.src = "https://via.placeholder.com/300x200"
+            image.width = 300;
+            image.height = 200;
+            //alert(image.getAttribute("data-url"));
+            alert(image.dataset.url);
+            image.setAttribute('data-alt', 'placeholder');
+            // alert(image.getAttribute("data-alt"));
+            // image.dataset.alt = 'placeholder';
+            alert(image.dataset.alt);
+        };
+    </script>
+</head>
+<body>
+    <img id="image" data-url="https://via.placeholder.com/300x200">
+</body>
+
+</html>

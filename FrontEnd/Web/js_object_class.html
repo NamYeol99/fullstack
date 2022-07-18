@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class Object</title>
+    <script>
+        //old Object선언  옛날 방식
+        // var Human = function(type){
+        //     this.type = type || 'human';
+        // }
+        // Human.isHuman = function(human) {
+        //     return human instanceof Human;
+        // }
+        
+        //class 선언
+        class Human{
+            constructor(type='Human'){
+                this.type = type;
+            }
+            static isHuman(human){
+                return human instanceof Human; 
+            }     
+            breathe(){
+                alert('후~!');
+            }
+        }      
+        const teacher= new Human('teacher');
+        const student= new Human('student');
+        for (const key in teacher) {
+            console.log(key);
+            alert(`${key} : ${teacher[key]}`)
+        }
+        console.log(Human.isHuman(teacher));
+        console.log(Human.isHuman(student));
+        teacher.breathe();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script>
+        window.onload= () => {
+            var models = [
+                ['IONIQS','Gv60'],
+                ['EV6','Carnival'],
+                ['Bronco', 'Mustang'],
+                ['A1', 'A6','A7']
+            ];
+            document.getElementById("maker");
+           maker.onchange=()=>{
+                // alert(maker.value);
+                // alert(maker.selectedIndex);
+                // alert(maker.options[maker.selectedIndex].value);
+                // alert(maker.options[maker.selectedIndex].text);
+                var arr = models[maker.options[maker.selectedIndex].value];
+                var model = document.querySelector("#model");
+                model.innerHTML="";
+                var str = '';
+                for (let i = 0; i < arr.length; i++) {
+                    const model_no = arr[i];
+                    console.log(model_no);  
+                    str += `<option value="${i}">${model_no}</option>`;
+                }
+                model.innerHTML = str;
+           }
+        };
+    </script>
+</head>
+<body>
+    <select name="maker" id="maker">
+        <option value="">선택하세요</option>
+        <option value="0">Hyundai</option>
+        <option value="1">KIA</option>
+        <option value="2">Ford</option>
+        <option value="3">Audi</option>
+    </select>
+    <select name="model" id="model"></select>
+</body>
+</html>

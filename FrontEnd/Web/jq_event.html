@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        // $(()=>{
+            
+        //     $('h1').click(function() {
+                
+        //         alert($(this).text());
+        //     });
+        // });
+        window.onload = () => {
+            var h1s = document.querySelectorAll("h1");
+            h1s.forEach((item,index)=>{
+                item.onclick = ()=>{
+                    // alert(item.textContent);
+                    alert(h1s[index].textContent);
+                };
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>Click</h1>
+    <h1>Click</h1>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('h1').css('background', 'red');
+        });
+
+        $(function () {
+            var rainbow = ['red', 'orange', 'yellow', 'green', 'blue', 'navy', 'purple'];
+            $('h1').css('background', 'red').css('color', 'white');
+            // $('img').attr('src', 'https://via.placeholder.com/300x200');
+            // $('img').attr('alt', 'empty image');
+            $('img').attr({
+                src: 'https://via.placeholder.com/300x200',
+                alt: 'empty image'
+            });
+            $('div').css({
+                'display': 'inline-block',
+                'width': '50px',
+                'height': '100px',
+                color: 'white'
+            }).css('background-color', // 메서드 체이닝
+                //     function(idx){
+                //     return rainbow[idx];
+                // }
+                idx => rainbow[idx]
+            );
+
+            //$('div').each(function(i,item){ // function(index, item)
+            //     $(item).text(rainbow[i]);
+            // });
+            $('div').each((i, item) => {
+                $(item).text(rainbow[i]);
+                alert($(item).text());
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+    <h1>JQuery 실습</h1>
+    <h1>JQuery 실습</h1>
+    <img>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+</body>
+
+</html>

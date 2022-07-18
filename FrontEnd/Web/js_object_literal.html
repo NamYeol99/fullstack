@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script>
+        var arr = ['apple', 'banana', 'mango', 'strawberry'];
+        for (const i in arr) {
+            console.log(arr[i]);
+            
+        }
+        var sayJS = function(){
+            console.log("Hello Javascript");
+        }
+        // var oldObject = {
+        //     num: 10,
+        //     sayGreeting: function() {
+        //         alert('hello');
+        //     },
+        //     sayJS: sayJS()
+        // };
+        // console.log(oldObject.num);
+        // oldObject.sayGreeting();
+        var newObject = {
+            num: 100,
+            sayGreeting(){
+                alert('new Hello')
+            },
+            sayJS
+        };
+        console.log(newObject.num);
+        newObject.sayGreeting();
+        newObject.sayJS();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

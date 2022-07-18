@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css"
+    />
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    <script>
+      window.onload = () => {
+        var inputs = document.querySelectorAll("input");
+        input1 = inputs[0];
+        input2 = inputs[1];
+        input1.onkeydown = () => {
+          if (input1.value.length >= 6) input2.focus();
+        };
+        input2.onkeydown = (e) => {
+          e = e || window.event;
+          if (e.keyCode == 8 && input2.value.length === 0) {
+            input1.focus();
+          }
+        };
+
+        $("#datepicker").datepicker({
+          dateFormat: "yy-mm-dd",
+          prevText: "이전 달",
+          nextText: "다음 달",
+          monthNames: [
+            "1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월",
+          ],
+          monthNamesShort: [
+            "1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월",
+          ],
+          dayNames: ["일", "월", "화", "수", "목", "금", "토"],
+          dayNamesShort: ["일", "월", "화", "수", "목", "금", "토"],
+          dayNamesMin: ["일", "월", "화", "수", "목", "금", "토"],
+          showMonthAfterYear: true,
+          yearSuffix: "년",
+        });
+        function getDate() {
+          var newDate = new Date();
+          var yyyy = newDate.getFullYear();
+          var mm = newDate.getMonth() + 1;
+          if (mm < 10) mm = "0" + mm;
+          var dd = newDate.getDate();
+          if (dd < 10) dd = "0" + dd;
+          var toDay = yyyy + "-" + mm + "-" + dd;
+          document.getElementById("datepicker").value = toDay;
+        }
+        getDate();
+      };
+    </script>
+  </head>
+  <body>
+    <input type="text" maxlength="6" />-<input type="text" maxlength="6" />
+    <hr />
+    <p>Date: <input type="text" id="datepicker" /></p>
+  </body>
+</html>
